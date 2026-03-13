@@ -7,15 +7,53 @@ xcuserdata/
 
 ## Obj-C/Swift specific
 *.hmap
-
-## App packaging
 *.ipa
 *.dSYM.zip
 *.dSYM
 
+## Build generated
+build/
+DerivedData/
+
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
+
+## Various settings
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.xcscheme
+!default.xcscheme
+
+## Xcode profiling/indexing
+*.profraw
+Index.noindex/
+Index/
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+## IDEs
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
 
 # Swift Package Manager
 #
