@@ -11,11 +11,32 @@ import Foundation
 @MainActor
 final class RealEstatesListingViewModel: ObservableObject {
   @Published private(set) var state: LoadableState<[PropertyResultDTO], String> = .idle
+  @Published var isFavoritesFilterEnabled = false
   
   private let service: RealEstatesListingService
+  private let favoritesStorageManager: FavoritesStorageManager
   
-  init(service: RealEstatesListingService) {
+  init(service: RealEstatesListingService, favoritesStorageManager: FavoritesStorageManager) {
     self.service = service
+    self.favoritesStorageManager = favoritesStorageManager
+  }
+  
+  func toggleFavoritesFilter() {
+    isFavoritesFilterEnabled.toggle()
+  }
+  
+  func displayedListings(from listings: [PropertyResultDTO]) -> [PropertyResultDTO] {
+    guard isFavoritesFilterEnabled else { return listings }
+    return listings.filter { isBookmarked(for: $0) }
+  }
+  
+  func isBookmarked(for result: PropertyResultDTO) -> Bool {
+    favoritesStorageManager.isBookmarked(id: result.id)
+  }
+  
+  func toggleBookmark(_ result: PropertyResultDTO) {
+    favoritesStorageManager.toggleBookmark(id: result.id)
+    objectWillChange.send()
   }
   
   func fetchListings() async {

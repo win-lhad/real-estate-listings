@@ -15,12 +15,12 @@ protocol AppScreenFactory {
 final class AppScreenFactoryImp: AppScreenFactory {
   private let container: AppContainer
   private let listingsBuilder: RealEstatesListingBuilder
-
+  
   init(container: AppContainer) {
     self.container = container
     self.listingsBuilder = RealEstatesListingBuilder(container: container)
   }
-
+  
   func makeRealEstatesListingView() -> RealEstatesListingView {
     return listingsBuilder.build()
   }

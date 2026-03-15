@@ -16,6 +16,8 @@ enum PropertiesListingDTOMocks {
   static let resultWithLocalityOnly: PropertiesListingDTO = decode(resultWithLocalityOnlyJSON)
   static let resultWithEmptyAddress: PropertiesListingDTO = decode(resultWithEmptyAddressJSON)
   static let resultWithNoRegion: PropertiesListingDTO = decode(resultWithNoRegionJSON)
+  static let resultWithNoPrice: PropertiesListingDTO = decode(resultWithNoPriceJSON)
+  static let resultWithNoTitle: PropertiesListingDTO = decode(resultWithNoTitleJSON)
   
   private static func decode(_ json: String) -> PropertiesListingDTO {
     try! JSONDecoder().decode(PropertiesListingDTO.self, from: Data(json.utf8))
@@ -32,6 +34,12 @@ enum PropertiesListingDTOMocks {
   
   private static let resultWithNoRegionJSON =
   #"{"from":0,"size":1,"total":1,"results":[{"id":"no-region","listing":{"id":"no-region","prices":{"currency":"CHF","buy":{"price":100000}},"address":{"country":"CH","locality":"Lausanne","postalCode":"1000","street":"Rue Example 1","geoCoordinates":{"latitude":46.98,"longitude":6.6}},"localization":{"primary":"de","de":{"attachments":[],"text":{"title":"Test"},"urls":[]}}}}],"maxFrom":0}"#
+  
+  private static let resultWithNoPriceJSON =
+  #"{"from":0,"size":1,"total":1,"results":[{"id":"no-price","listing":{"id":"no-price","prices":{"currency":"CHF","buy":null},"address":{"country":"CH","locality":"Zürich","geoCoordinates":{"latitude":46.98,"longitude":6.6}},"localization":{"primary":"de","de":{"attachments":[],"text":{"title":"Test"},"urls":[]}}}}],"maxFrom":0}"#
+  
+  private static let resultWithNoTitleJSON =
+  #"{"from":0,"size":1,"total":1,"results":[{"id":"no-title","listing":{"id":"no-title","prices":{"currency":"CHF","buy":{"price":100000}},"address":{"country":"CH","locality":"Zürich","geoCoordinates":{"latitude":46.98,"longitude":6.6}},"localization":{"primary":"de","de":null}}}],"maxFrom":0}"#
   
   private static let emptyJSON = #"{"from":0,"size":0,"total":0,"results":[],"maxFrom":0}"#
   
