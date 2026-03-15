@@ -1,5 +1,5 @@
 //
-//  RealEstateListingServiceImp.swift
+//  RealEstatesListingService.swift
 //  RealEstateListings
 //
 //  Created by Duy Le on 14/3/26.
@@ -7,12 +7,18 @@
 
 import Foundation
 
-protocol RealEstateListingService {
-  func fetchListings() async throws -> [RealEstate]
+protocol RealEstatesListingService {
+  func fetchPropertiesListing() async throws -> PropertiesListingDTO
 }
 
-final class RealEstateListingServiceImp: RealEstateListingService {
-  func fetchListings() async throws -> [RealEstate] {
-    []
+final class RealEstatesListingServiceImp: RealEstatesListingService {
+  private let networkClient: NetworkClient
+  
+  init(networkClient: NetworkClient) {
+    self.networkClient = networkClient
+  }
+  
+  func fetchPropertiesListing() async throws -> PropertiesListingDTO {
+    try await networkClient.send(RealEstatesEndpoint.properties)
   }
 }

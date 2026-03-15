@@ -17,8 +17,7 @@ final class RealEstatesListingBuilder {
   }
 
   func build() -> RealEstatesListingView {
-    _ = container
-    let viewModel = RealEstatesListingViewModel()
+    let viewModel = RealEstatesListingViewModel(service: container.realEstatesListingService)
     return RealEstatesListingView(viewModel: viewModel)
   }
 }

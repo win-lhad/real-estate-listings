@@ -11,4 +11,10 @@ import Foundation
 @MainActor
 final class RealEstatesListingViewModel: ObservableObject {
   @Published private(set) var title = "Real Estates Listing"
+
+  private let service: RealEstatesListingService
+
+  init(service: RealEstatesListingService) {
+    self.service = service
+  }
 }
