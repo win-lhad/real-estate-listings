@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PropertiesListingDTO: Decodable {
+struct PropertiesListingDTO: Decodable, Equatable {
   let from: Int?
   let size: Int?
   let total: Int?
@@ -15,7 +15,7 @@ struct PropertiesListingDTO: Decodable {
   let maxFrom: Int?
 }
 
-struct PropertyResultDTO: Decodable, Identifiable {
+struct PropertyResultDTO: Decodable, Identifiable, Equatable {
   let id: String
   let remoteViewing: Bool?
   let listingType: ListingTypeDTO?
@@ -24,11 +24,11 @@ struct PropertyResultDTO: Decodable, Identifiable {
   let lister: ListerDTO?
 }
 
-struct ListingTypeDTO: Decodable {
+struct ListingTypeDTO: Decodable, Equatable {
   let type: String
 }
 
-struct ListerBrandingDTO: Decodable {
+struct ListerBrandingDTO: Decodable, Equatable {
   let logoUrl: String?
   let legalName: String?
   let name: String?
@@ -39,7 +39,7 @@ struct ListerBrandingDTO: Decodable {
   let profilePageUrlKeyword: String?
 }
 
-struct ListingDTO: Decodable {
+struct ListingDTO: Decodable, Equatable {
   let id: String
   let offerType: String?
   let categories: [String]?
@@ -50,27 +50,23 @@ struct ListingDTO: Decodable {
   let lister: ListerDTO?
 }
 
-struct ListerDTO: Decodable {
+struct ListerDTO: Decodable, Equatable {
   let phone: String?
   let logoUrl: String?
 }
 
-struct PricesDTO: Decodable {
+struct PricesDTO: Decodable, Equatable {
   let currency: String?
   let buy: BuyPriceDTO?
-  let rent: RentPriceDTO?
 }
 
-struct BuyPriceDTO: Decodable {
+struct BuyPriceDTO: Decodable, Equatable {
   let area: String?
   let price: Double?
   let interval: String?
 }
 
-struct RentPriceDTO: Decodable {
-}
-
-struct AddressDTO: Decodable {
+struct AddressDTO: Decodable, Equatable {
   let country: String?
   let locality: String?
   let postalCode: String?
@@ -79,30 +75,30 @@ struct AddressDTO: Decodable {
   let geoCoordinates: GeoCoordinatesDTO?
 }
 
-struct GeoCoordinatesDTO: Decodable {
+struct GeoCoordinatesDTO: Decodable, Equatable {
   let latitude: Double
   let longitude: Double
 }
 
-struct CharacteristicsDTO: Decodable {
+struct CharacteristicsDTO: Decodable, Equatable {
   let numberOfRooms: Double?
   let livingSpace: Double?
   let lotSize: Double?
   let totalFloorSpace: Double?
 }
 
-struct LocalizationDTO: Decodable {
+struct LocalizationDTO: Decodable, Equatable {
   let primary: String
   let de: LocalizationContentDTO?
 }
 
-struct LocalizationContentDTO: Decodable {
+struct LocalizationContentDTO: Decodable, Equatable {
   let attachments: [AttachmentDTO]?
   let text: LocalizationTextDTO?
   let urls: [UrlDTO]?
 }
 
-struct LocalizationTextDTO: Decodable {
+struct LocalizationTextDTO: Decodable, Equatable {
   let title: String
 }
 
@@ -111,12 +107,12 @@ enum AttachmentTypeDTO: String, Decodable {
   case document = "DOCUMENT"
 }
 
-struct AttachmentDTO: Decodable {
+struct AttachmentDTO: Decodable, Equatable {
   let type: AttachmentTypeDTO
   let url: String
   let file: String?
 }
 
-struct UrlDTO: Decodable {
+struct UrlDTO: Decodable, Equatable {
   let type: String?
 }
