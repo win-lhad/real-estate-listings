@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct RealEstateListingsApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  @StateObject private var coordinator: AppCoordinator
+  
+  init() {
+    let container = AppContainer()
+    _coordinator = StateObject(wrappedValue: AppCoordinator(container: container))
+  }
+  
+  var body: some Scene {
+    WindowGroup {
+      RootCoordinatorView(coordinator: coordinator)
     }
+  }
 }
