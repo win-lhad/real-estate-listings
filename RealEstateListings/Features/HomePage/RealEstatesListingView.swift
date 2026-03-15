@@ -15,9 +15,6 @@ struct RealEstatesListingView: View {
   }
   
   var body: some View {
-    Text(viewModel.title)
-      .font(.title2)
-      .padding()
-      .navigationTitle("Home")
+    Text("Real Estates Listing")
   }
 }
