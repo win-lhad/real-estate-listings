@@ -14,19 +14,11 @@
 			remoteGlobalIDString = C1501F782F63F5570016851C;
 			remoteInfo = RealEstateListings;
 		};
-		C1501F912F63F5590016851C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C1501F712F63F5570016851C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C1501F782F63F5570016851C;
-			remoteInfo = RealEstateListings;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C1501F792F63F5570016851C /* RealEstateListings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealEstateListings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1501F862F63F5590016851C /* RealEstateListingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealEstateListingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1501F902F63F5590016851C /* RealEstateListingsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealEstateListingsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +30,6 @@
 		C1501F892F63F5590016851C /* RealEstateListingsTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = RealEstateListingsTests;
-			sourceTree = "<group>";
-		};
-		C1501F932F63F5590016851C /* RealEstateListingsUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = RealEstateListingsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -62,13 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1501F8D2F63F5590016851C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -77,7 +57,6 @@
 			children = (
 				C1501F7B2F63F5570016851C /* RealEstateListings */,
 				C1501F892F63F5590016851C /* RealEstateListingsTests */,
-				C1501F932F63F5590016851C /* RealEstateListingsUITests */,
 				C1501F7A2F63F5570016851C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +66,6 @@
 			children = (
 				C1501F792F63F5570016851C /* RealEstateListings.app */,
 				C1501F862F63F5590016851C /* RealEstateListingsTests.xctest */,
-				C1501F902F63F5590016851C /* RealEstateListingsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,29 +118,6 @@
 			productReference = C1501F862F63F5590016851C /* RealEstateListingsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		C1501F8F2F63F5590016851C /* RealEstateListingsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C1501FA02F63F5590016851C /* Build configuration list for PBXNativeTarget "RealEstateListingsUITests" */;
-			buildPhases = (
-				C1501F8C2F63F5590016851C /* Sources */,
-				C1501F8D2F63F5590016851C /* Frameworks */,
-				C1501F8E2F63F5590016851C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C1501F922F63F5590016851C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				C1501F932F63F5590016851C /* RealEstateListingsUITests */,
-			);
-			name = RealEstateListingsUITests;
-			packageProductDependencies = (
-			);
-			productName = RealEstateListingsUITests;
-			productReference = C1501F902F63F5590016851C /* RealEstateListingsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,10 +132,6 @@
 						CreatedOnToolsVersion = 26.3;
 					};
 					C1501F852F63F5590016851C = {
-						CreatedOnToolsVersion = 26.3;
-						TestTargetID = C1501F782F63F5570016851C;
-					};
-					C1501F8F2F63F5590016851C = {
 						CreatedOnToolsVersion = 26.3;
 						TestTargetID = C1501F782F63F5570016851C;
 					};
@@ -202,7 +153,6 @@
 			targets = (
 				C1501F782F63F5570016851C /* RealEstateListings */,
 				C1501F852F63F5590016851C /* RealEstateListingsTests */,
-				C1501F8F2F63F5590016851C /* RealEstateListingsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +166,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C1501F842F63F5590016851C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C1501F8E2F63F5590016851C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,13 +189,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C1501F8C2F63F5590016851C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -260,11 +196,6 @@
 			isa = PBXTargetDependency;
 			target = C1501F782F63F5570016851C /* RealEstateListings */;
 			targetProxy = C1501F872F63F5590016851C /* PBXContainerItemProxy */;
-		};
-		C1501F922F63F5590016851C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C1501F782F63F5570016851C /* RealEstateListings */;
-			targetProxy = C1501F912F63F5590016851C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -500,44 +431,6 @@
 			};
 			name = Release;
 		};
-		C1501FA12F63F5590016851C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = duy.RealEstateListingsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RealEstateListings;
-			};
-			name = Debug;
-		};
-		C1501FA22F63F5590016851C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = duy.RealEstateListingsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RealEstateListings;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -564,15 +457,6 @@
 			buildConfigurations = (
 				C1501F9E2F63F5590016851C /* Debug */,
 				C1501F9F2F63F5590016851C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C1501FA02F63F5590016851C /* Build configuration list for PBXNativeTarget "RealEstateListingsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C1501FA12F63F5590016851C /* Debug */,
-				C1501FA22F63F5590016851C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
