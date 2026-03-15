@@ -11,13 +11,16 @@ import Foundation
 @MainActor
 final class RealEstatesListingBuilder {
   private let container: AppContainer
-
+  
   init(container: AppContainer) {
     self.container = container
   }
-
+  
   func build() -> RealEstatesListingView {
-    let viewModel = RealEstatesListingViewModel(service: container.realEstatesListingService)
+    let viewModel = RealEstatesListingViewModel(
+      service: container.realEstatesListingService,
+      favoritesStorageManager: container.favoritesStorageManager
+    )
     return RealEstatesListingView(viewModel: viewModel)
   }
 }

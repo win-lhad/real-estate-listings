@@ -12,6 +12,8 @@ struct PropertyCard: View {
   let price: String
   let address: String
   let imageURL: URL?
+  let isBookmarked: Bool
+  let onLikeTapped: () -> Void
   
   var body: some View {
     VStack(alignment: .leading, spacing: 12) {
@@ -32,6 +34,21 @@ struct PropertyCard: View {
         }
         .frame(height: 200)
         .clipped()
+        
+        VStack {
+          HStack {
+            Spacer()
+            Button(action: onLikeTapped) {
+              Image(systemName: isBookmarked ? "heart.fill" : "heart")
+                .font(.title2)
+                .foregroundStyle(isBookmarked ? .red : .white)
+                .shadow(color: .black.opacity(0.3), radius: 1, x: 0, y: 1)
+            }
+            .buttonStyle(.plain)
+          }
+          .padding(12)
+          Spacer()
+        }
         
         Text(price)
           .font(.headline)

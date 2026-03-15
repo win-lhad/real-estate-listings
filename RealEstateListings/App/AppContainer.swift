@@ -9,13 +9,11 @@ import Foundation
 
 final class AppContainer {
   let realEstatesListingService: RealEstatesListingService
+  let favoritesStorageManager: FavoritesStorageManager
   
-  init(realEstatesListingService: RealEstatesListingService? = nil) {
-    if let realEstatesListingService {
-      self.realEstatesListingService = realEstatesListingService
-      return
-    }
+  init() {
     let networkClient = NetworkClientImp(requestBuilder: HomegateRequestBuilder())
     self.realEstatesListingService = RealEstatesListingServiceImp(networkClient: networkClient)
+    self.favoritesStorageManager = FavoritesStorageManagerImp()
   }
 }

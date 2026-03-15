@@ -12,4 +12,9 @@ enum LoadableState<Value: Equatable, Failure: Equatable>: Equatable {
   case loading
   case loaded(Value)
   case failed(Failure)
+  
+  var loadedValue: Value? {
+    if case .loaded(let value) = self { return value }
+    return nil
+  }
 }

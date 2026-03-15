@@ -22,17 +22,34 @@ struct RealEstatesListingView: View {
       case .loading:
         ProgressView()
       case .loaded(let listings):
-        List {
-          ForEach(listings) { result in
-            PropertyCard(
-              title: viewModel.title(for: result),
-              price: viewModel.formattedPrice(for: result),
-              address: viewModel.formattedAddress(for: result),
-              imageURL: viewModel.firstImageURL(for: result)
+        let displayed = viewModel.displayedListings(from: listings)
+        Group {
+          if displayed.isEmpty {
+            ContentUnavailableView(
+              viewModel.isFavoritesFilterEnabled ? "No favorites yet" : "No listings available",
+              systemImage: viewModel.isFavoritesFilterEnabled ? "heart.slash" : "tray",
+              description: Text(
+                viewModel.isFavoritesFilterEnabled
+                ? "Tap the heart on a listing to add it to your favorites."
+                : "Check back later for new listings."
+              )
             )
+          } else {
+            List {
+              ForEach(displayed) { result in
+                PropertyCard(
+                  title: viewModel.title(for: result),
+                  price: viewModel.formattedPrice(for: result),
+                  address: viewModel.formattedAddress(for: result),
+                  imageURL: viewModel.firstImageURL(for: result),
+                  isBookmarked: viewModel.isBookmarked(for: result),
+                  onLikeTapped: { viewModel.toggleBookmark(result) }
+                )
+              }
+            }
+            .listStyle(.plain)
           }
         }
-        .listStyle(.plain)
       case .failed(let message):
         VStack(spacing: 16) {
           Text(message)
@@ -46,6 +63,16 @@ struct RealEstatesListingView: View {
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .navigationTitle("REL")
+    .toolbar {
+      ToolbarItem(placement: .primaryAction) {
+        Button {
+          viewModel.toggleFavoritesFilter()
+        } label: {
+          Image(systemName: viewModel.isFavoritesFilterEnabled ? "heart.circle.fill" : "heart.circle")
+        }
+        .disabled(viewModel.state.loadedValue == nil)
+      }
+    }
     .task {
       if case .idle = viewModel.state {
         await viewModel.fetchListings()
